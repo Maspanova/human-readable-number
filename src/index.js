@@ -1,8 +1,8 @@
 module.exports = function toReadable (number) {
-   let key = number.length;
-    let numbers = ""
-    let units = ""
-  let dozens= ""
+       let key = number.length;
+    let numbers = "";
+    let units = number % 10 
+    let dozens= "";
     if (number == 0) {
         numbers = "zero"
     };
@@ -65,5 +65,40 @@ module.exports = function toReadable (number) {
     };
 
     if (number < 20 ) {
-    return numbers; }
+    return numbers; 
+};
+
+ 
+ if (number >= 20 && number <= 99) {
+    if (Math.trunc(number / 10) == 2) {
+    dozens = "twenty"
+    };
+   if (Math.trunc(number / 10)  == 3) {
+    dozens = "thirty"
+   };
+   if (Math.trunc(number / 10) == 4) {
+    dozens = "forty"
+   };
+   if (Math.trunc(number / 10)  == 5) {
+    dozens = "fifty"
+   };
+   if (Math.trunc(number / 10)  == 6) {
+    dozens = "sixty"
+   };
+   if (Math.trunc(number / 10)  == 7) {
+    dozens = "seventy"
+   };
+   if (Math.trunc(number / 10)  == 8) {
+    dozens = "eighty"
+   };
+   if (Math.trunc(number / 10)  == 9) {
+    dozens = "ninety"
+   };
+   if (number >= 20 && number <= 99 && number % 10 === 0) {
+   return dozens;
+   }
+   else {
+    return dozens + " " + numbers
+   }
+};
 }
