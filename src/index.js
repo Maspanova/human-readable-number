@@ -66,3 +66,4 @@ module.exports = function toReadable (number) {
 
     if (number < 20 ) {
     return numbers; }
+}
