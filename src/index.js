@@ -1,5 +1,6 @@
 module.exports = function toReadable (number) {
-      let key = number;
+     
+ let key = number;
     let numbers = "";
     let units = number % 10 
     let dozens= number % 10;
@@ -170,7 +171,8 @@ else if (number - (Math.trunc(number / 100))*100 < 20) {
     };
     return thousands + " " + numbers;
 }
-else {
+else 
+{
     if (Math.trunc((number % 100)/10) == 2) {
         dozens = "twenty"
         };
@@ -196,7 +198,11 @@ else {
         dozens = "ninety"
        };
 }
-return thousands + " "+ dozens+ " " + numbers;
+
+
+if (((number % 100) % 10) !==0) 
+{return thousands + " "+ dozens + " " + numbers;}
+else return thousands + " " + dozens;
 }
 }
 }
